@@ -15,7 +15,7 @@ REDES = {
     'https://www.youtube.com/@recuerdosdeuntomate': 'YouTube',
     'https://www.instagram.com/recuerdosdeuntomate': 'Instagram',
     'https://www.tiktok.com/@recuerdosdeuntomate': 'TikTok',
-    'https://www.facebook.com/recuerdosdeuntomate': 'Facebook',
+    'https://www.facebook.com/profile.php?id=61596528816147': 'Facebook',
 }
 LIMITE_KB = 400
 # Inicios de palabra prohibidos: los de CANAL/censura.json (si está a la mano) + otras groserías comunes.
