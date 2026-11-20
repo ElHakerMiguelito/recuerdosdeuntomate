@@ -117,7 +117,7 @@ def revisar(usuario=None):
             v = a.get(attr)
             if not v or (t == 'a' and v in REDES):
                 continue
-            if t == 'meta':
+            if t == 'meta' or (t == 'link' and a.get('rel') == 'canonical'):
                 continue
             locales.append(v.split()[0])
         if t == 'meta' and (a.get('property') or '').startswith('og:'):
