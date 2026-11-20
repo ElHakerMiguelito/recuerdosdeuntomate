@@ -167,6 +167,10 @@ def revisar(usuario=None):
 
 
 def main():
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except AttributeError:
+        pass
     usuario = None
     if '--usuario' in sys.argv:
         usuario = sys.argv[sys.argv.index('--usuario') + 1]

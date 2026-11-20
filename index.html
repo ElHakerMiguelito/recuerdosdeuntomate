@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Recuerdos de un Tomate · Toma-tito en todas las redes</title>
+<meta name="description" content="Un tomate culichi que estuvo en toda la historia. Te la cuenta al chile.">
+<meta name="theme-color" content="#e9c46a">
+<link rel="icon" type="image/png" href="img/icono.png">
+<link rel="apple-touch-icon" href="img/icono.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Recuerdos de un Tomate">
+<meta property="og:description" content="Un tomate culichi que estuvo en toda la historia. Te la cuenta al chile.">
+<meta property="og:image" content="img/vista-previa.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_MX">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="fuentes/Anton.woff" as="font" type="font/woff" crossorigin>
+<style>
+  @font-face { font-family: "Anton"; src: url("fuentes/Anton.woff") format("woff"); font-display: swap; }
+  @font-face { font-family: "Caveat"; src: url("fuentes/Caveat-Bold.woff") format("woff"); font-weight: 700; font-display: swap; }
+
+  :root {
+    --amarillo: #e9c46a;
+    --rayo: #f0d48c;
+    --linea: #2b1a14;
+    --guinda: #8a1f2d;
+    --rojo: #e0352b;
+    --verde: #1d5a27;
+    --menta: #86cbb5;
+    --crema: #f4efe6;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    color: var(--linea);
+    background-color: var(--amarillo);
+    background-image: repeating-conic-gradient(from 0deg at 50% 150px,
+      var(--amarillo) 0deg 7.5deg, var(--rayo) 7.5deg 15deg);
+    background-attachment: fixed;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  main {
+    max-width: 420px;
+    margin: 0 auto;
+    padding: max(20px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tomate {
+    display: block;
+    width: 220px;
+    height: auto;
+    margin-bottom: -6px;
+    filter: drop-shadow(0 6px 0 rgba(43, 26, 20, .18));
+    transform-origin: 50% 100%;
+    animation: rebote .7s cubic-bezier(.3, 1.6, .5, 1) both;
+  }
+  @keyframes rebote {
+    0%   { transform: translateY(-40px) scale(.9, 1.08); opacity: 0; }
+    55%  { transform: translateY(0) scale(1.08, .92); opacity: 1; }
+    80%  { transform: translateY(-6px) scale(.98, 1.02); }
+    100% { transform: none; }
+  }
+
+  h1 {
+    margin: 0;
+    font-family: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: .01em;
+    color: #fff;
+    -webkit-text-stroke: .14em var(--linea);
+    paint-order: stroke fill;
+    text-shadow: 0 .07em 0 var(--linea);
+  }
+  h1 .uno { display: block; font-size: clamp(46px, 16vw, 68px); }
+  h1 .dos { display: block; font-size: clamp(33px, 11.5vw, 49px); }
+
+  .frase {
+    margin: 10px 0 6px;
+    font-family: "Caveat", "Segoe Print", cursive;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.1;
+    color: var(--guinda);
+    transform: rotate(-2deg);
+  }
+  .bio {
+    margin: 0 0 22px;
+    max-width: 30ch;
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 600;
+  }
+
+  nav { width: 100%; display: flex; flex-direction: column; gap: 14px; }
+
+  .boton {
+    --fondo: var(--crema);
+    --tinta: var(--linea);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 60px;
+    padding: 10px 18px;
+    border: 3px solid var(--linea);
+    border-radius: 16px;
+    background: var(--fondo);
+    color: var(--tinta);
+    text-decoration: none;
+    text-align: left;
+    box-shadow: 0 5px 0 var(--linea);
+    transition: transform .08s ease, box-shadow .08s ease;
+  }
+  .boton:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--linea); }
+  .boton:focus-visible { outline: 3px solid var(--guinda); outline-offset: 4px; }
+  @media (hover: hover) {
+    .boton:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--linea); }
+    .boton:hover:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--linea); }
+  }
+  .boton svg { flex: none; width: 30px; height: 30px; }
+  .boton .nombre {
+    font-family: "Anton", Impact, sans-serif;
+    font-size: 22px;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .boton .extra { display: block; margin-top: 4px; font-size: 13px; font-weight: 600; opacity: .85; }
+  .boton .flecha { margin-left: auto; font-size: 22px; font-weight: 700; }
+
+  .boton.principal {
+    --fondo: var(--guinda);
+    --tinta: var(--crema);
+    min-height: 74px;
+  }
+  .boton.principal .nombre { font-size: 26px; }
+
+  footer {
+    margin-top: 28px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+  footer .legal {
+    display: block;
+    margin-top: 10px;
+    font-size: 11.5px;
+    font-weight: 400;
+    opacity: .75;
+    max-width: 36ch;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 700px) {
+    main { padding-top: 48px; }
+    .tomate { width: 250px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tomate { animation: none; }
+    .boton { transition: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <picture>
+    <source srcset="img/toma-tito.webp" type="image/webp">
+    <img class="tomate" src="img/toma-tito.png" width="600" height="600"
+         alt="Toma-tito, un tomate con bigote, saludando">
+  </picture>
+
+  <h1><span class="uno">RECUERDOS</span><span class="dos">DE UN TOMATE</span></h1>
+  <p class="frase">Yo estuve ahí, compa</p>
+  <p class="bio">Un tomate culichi que estuvo en toda la historia. Te la cuenta al chile.</p>
+
+  <nav aria-label="Redes">
+    <a class="boton principal" href="https://www.youtube.com/@recuerdosdeuntomate">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="6" width="28" height="20" rx="6" fill="#e0352b" stroke="#f4efe6" stroke-width="2"/><path d="M13 11.5v9l8-4.5z" fill="#f4efe6"/></svg>
+      <span><span class="nombre">YouTube</span><span class="extra">Videos completos aquí</span></span>
+      <span class="flecha" aria-hidden="true">›</span>
+    </a>
+    <a class="boton" href="https://www.instagram.com/recuerdosdeuntomate">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="4" width="24" height="24" rx="7" fill="none" stroke="#8a1f2d" stroke-width="3"/><circle cx="16" cy="16" r="5.5" fill="none" stroke="#8a1f2d" stroke-width="3"/><circle cx="23" cy="9" r="1.8" fill="#8a1f2d"/></svg>
+      <span class="nombre">Instagram</span>
+      <span class="flecha" aria-hidden="true">›</span>
+    </a>
+    <a class="boton" href="https://www.tiktok.com/@recuerdosdeuntomate">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M17.5 4v15.5a4.5 4.5 0 1 1-4.5-4.5" fill="none" stroke="#2b1a14" stroke-width="3.2" stroke-linecap="round"/><path d="M17.5 4c.6 3.8 3.2 6.2 7 6.5" fill="none" stroke="#2b1a14" stroke-width="3.2" stroke-linecap="round"/></svg>
+      <span class="nombre">TikTok</span>
+      <span class="flecha" aria-hidden="true">›</span>
+    </a>
+    <a class="boton" href="https://www.facebook.com/recuerdosdeuntomate">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="#1d5a27"/><path d="M17.6 27V17.8h3l.5-3.6h-3.5v-2.3c0-1 .3-1.7 1.8-1.7h1.9V7a25 25 0 0 0-2.8-.1c-2.8 0-4.6 1.7-4.6 4.8v2.6h-3v3.6h3V27z" fill="#f4efe6"/></svg>
+      <span class="nombre">Facebook</span>
+      <span class="flecha" aria-hidden="true">›</span>
+    </a>
+  </nav>
+
+  <footer>
+    Historias nuevas cada semana · @recuerdosdeuntomate
+    <span class="legal">Toma-tito es un personaje original, sin relación con los Tomateros de Culiacán ni con ninguna marca.</span>
+  </footer>
+</main>
+</body>
+</html>
