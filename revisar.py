@@ -1,6 +1,6 @@
 """Revisa la landing antes de subirla. Sale con 0 si todo pasa, 1 si algo falla.
 
-python revisar.py [--usuario USUARIO_DE_GITHUB]
+python revisar.py
 """
 import json
 import os
@@ -10,7 +10,7 @@ import unicodedata
 from html.parser import HTMLParser
 
 WEB = os.path.dirname(os.path.abspath(__file__))
-REPO = 'recuerdosdeuntomate'
+BASE = 'https://recuerdosdeuntomate.vercel.app/'  # dirección pública (Vercel)
 REDES = {
     'https://www.youtube.com/@recuerdosdeuntomate': 'YouTube',
     'https://www.instagram.com/recuerdosdeuntomate': 'Instagram',
@@ -76,7 +76,7 @@ def prohibidas():
     return sorted(set(sin_acentos(x) for x in lista))
 
 
-def revisar(usuario=None):
+def revisar():
     fallas, avisos, oks = [], [], []
     ok = oks.append
     falla = fallas.append
@@ -156,12 +156,8 @@ def revisar(usuario=None):
     og = {a.get('property'): a.get('content', '') for t, a in tags if t == 'meta' and a.get('property')}
     for clave in ('og:title', 'og:description', 'og:image'):
         (ok if og.get(clave) else falla)(clave)
-    if usuario:
-        base = f'https://{usuario.lower()}.github.io/{REPO}/'
-        for clave in ('og:image', 'og:url'):
-            (ok if og.get(clave, '').startswith(base) else falla)(f'{clave} empieza con {base}')
-    else:
-        avisos.append('sin --usuario: og:image y og:url no se revisan (la vista previa al compartir necesita URL absoluta)')
+    for clave in ('og:image', 'og:url'):
+        (ok if og.get(clave, '').startswith(BASE) else falla)(f'{clave} empieza con {BASE}')
 
     return fallas, avisos, oks
 
@@ -171,10 +167,7 @@ def main():
         sys.stdout.reconfigure(encoding='utf-8')
     except AttributeError:
         pass
-    usuario = None
-    if '--usuario' in sys.argv:
-        usuario = sys.argv[sys.argv.index('--usuario') + 1]
-    fallas, avisos, oks = revisar(usuario)
+    fallas, avisos, oks = revisar()
     for x in oks:
         print('  ok    ', x)
     for x in avisos:
